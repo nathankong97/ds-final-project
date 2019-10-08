@@ -1,0 +1,12 @@
+{
+    "name": "iu-msis/team-11-final-project",
+    "description": "Final Project for Team 11",
+    "license": "private",
+    "authors": [{
+        "name": "Nathan Kong"
+    }],
+    "require": {},
+    "autoload": {
+        "classmap": ["class/DbConnection.php"]
+    }
+}
