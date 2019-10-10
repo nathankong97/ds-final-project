@@ -53,12 +53,14 @@
       <div class="col-lg-4">
 
         <h1 class="my-5">Members</h1>
-        <div class="list-group">
-          <a href="#" class="list-group-item">Member 1</a>
-          <a href="#" class="list-group-item">Member 2</a>
-          <a href="#" class="list-group-item">Member 3</a>
-        </div>
 
+        <div id="membersApp">
+          <div class="list-group" v-for="m in members">
+            <a href="#" class="list-group-item">{{ m.Name }}</a>
+          </div>
+      </div>
+      
+      
       </div>
       <!-- /.col-lg-3 -->
 
@@ -100,6 +102,8 @@
     </div>
     <!-- /.container -->
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/members.app.js"></script>
 </body>
 
 </html>
