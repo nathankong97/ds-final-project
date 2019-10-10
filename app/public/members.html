@@ -50,42 +50,40 @@
 
     <div class="row">
 
-      <div class="col-lg-4">
-
-        <h1 class="my-5">Members</h1>
-
-        <div id="membersApp">
-          <div class="list-group" v-for="m in members">
-            <a href="#" class="list-group-item">{{ m.Name }}</a>
-          </div>
-      </div>
-      
-      
-      </div>
-      <!-- /.col-lg-3 -->
-
-      <div class="col-lg-4 my-4">
-        <div id="carouselExampleIndicators" class="my-4" data-ride="carousel">
-          <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">
-              <img class="d-block img-fluid member-photo rounded mx-auto d-block" src="img/firefighter1.jpeg" alt="">
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div class="col-lg-4 my-4">
-        <h2 class="text-center">Information</h2>
-        <table align="center" class="table table-striped">
-          <tr><td>Name</td><td>Sanyam Dave</td></tr>
-          <tr><td>Position</td><td>Newbee Firefighter</td></tr>
-          <tr><td>Sex</td><td>Hard to identify</td></tr>
-          <tr><td>Radio Number</td><td>1</td></tr>
-          <tr><td>Station Number</td><td>1</td></tr>
-          <tr><td>isActive</td><td>Yes</td></tr>
-          <tr><td>Date of Birth</td><td>1900-01-01</td></tr>
-          <tr><td>Start Date</td><td>9999-01-01</td></tr>
+      <div class="col-lg-12 my-5" id="membersApp">
+        <table align="center" class="table table-bordered table-hover table-striped text-center">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Position</th>
+              <th scope="col">Sex</th>
+              <th scope="col">Radio Number</th>
+              <th scope="col">Station Number</th>
+              <th scope="col">Active?</th>
+              <th scope="col">Date of Birth</th>
+              <th scope="col">Start Date</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="m in members">
+              <td>{{ m.Name }}</td>
+              <td>{{ m.Position }}</td>
+              <td>{{ m.Sex }}</td>
+              <td>{{ m.RadioNum }}</td>
+              <td>{{ m.StationNum }}</td>
+              <td>{{ m.isActive }}</td>
+              <td>{{ m.dob }}</td>
+              <td>{{ m.StartDate }}</td>
+              <td><button class="button">Deatil</button></td>
+              <td><button class="button">Edit</button></td>
+              <td><button class="button">Delete</button></td>
+            </tr>
+          </tbody>
         </table>
+
       </div>
 
     </div>
@@ -97,7 +95,7 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Team 11: Leavin' Yah Crimson</p>
+      <p class="m-0 text-center text-white">Copyright &copy; MSIS Team 11: Leavin' Yah Crimson</p>
       <p class="m-0 text-center text-white">Nathan - Arlie - David - Sanyam</p>
     </div>
     <!-- /.container -->
