@@ -49,32 +49,31 @@
   <div class="container">
 
     <div class="row">
-
-      <div class="col-lg-4">
-
-        <div class="dropdown my-5">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Our Certification List
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </div>
-        <hr>
-        <h2>Information</h2>
-        <br>
-        <table align="center" class="table table-striped">
-          <tr><td><b>Certification Name</b></td><td>CPR for Healthcare Providers</td></tr>
-          <tr><td><b>Standard Expiry</b></td><td>2 years</td></tr>
-          <tr><td><b>Certification Agency</b></td><td>American Heart Association</td></tr>
+      <div class="col-lg-12 my-5" id="certificationsApp">
+        <table align="center" class="table table-bordered table-hover table-striped text-center">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Standard Expiry</th>
+              <th scope="col">Provider</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="c in certifications">
+              <td>{{ c.Name }}</td>
+              <td>{{ c.Description }}</td>
+              <td>{{ c.Expiry }}</td>
+              <td>{{ c.Provider }}</td>
+              <td><button class="button">Deatil</button></td>
+              <td><button class="button">Edit</button></td>
+              <td><button class="button">Delete</button></td>
+            </tr>
+          </tbody>
         </table>
-      </div>
-      <!-- /.col-lg-4 -->
-
-      <div class="col-lg-8 my-4">
-
 
       </div>
 
@@ -87,11 +86,13 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Team 11: Leavin' Yah Crimson</p>
+      <p class="m-0 text-center text-white">Copyright &copy; MSIS Team 11: Leavin' Yah Crimson</p>
       <p class="m-0 text-center text-white">Nathan - Arlie - David - Sanyam</p>
     </div>
     <!-- /.container -->
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/certifications.app.js"></script>
 </body>
 
 </html>
