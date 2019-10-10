@@ -58,14 +58,14 @@
       <div class="col-lg-6">
         <h1 class="font-weight-light">Oconee County Fire Rescue</h1>
         <p>Oconee County Fire Rescue (OCFR) is a mostly volunteer organization in Oconee County, GA.
-Its fire fighters and rescue personnel have to maintain multiple certifications, many of which
-expire.</p>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Its fire fighters and rescue personnel have to maintain multiple certifications, many of which
+        expire.</p>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#contact">
           Contact and Join Us
           </button>
 
           <!-- Modal -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="contact-information" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -115,18 +115,17 @@ expire.</p>
 
 
     <!-- Call to Action Well -->
-    <div class="nav-color card text-white my-5 py-4 text-center">
-      <div class="card-body nav-color">
-        <p class="text-white mh-2"><b>Log In</b></p>
-        <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
-
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-
-      <button type="submit">Login</button>
+      <div class="login-page">
+        <div class="form">
+          <form class="login-form">
+            <input type="text" placeholder="username"/>
+            <input type="password" placeholder="password"/>
+            <button>login</button>
+            <p class="message">Not registered? <a href="#">
+              Create an account</a></p>
+          </form>
+        </div>
       </div>
-    </div>
 
   </div>
   <!-- /.container -->
@@ -139,6 +138,7 @@ expire.</p>
     </div>
     <!-- /.container -->
   </footer>
+
 </body>
 
 </html>
