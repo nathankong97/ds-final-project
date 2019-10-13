@@ -50,6 +50,7 @@
 
     <div class="row">
       <div class="col-lg-12 my-5" id="certificationsApp">
+        <h2>Certifications</h2>
         <table align="center" class="table table-bordered table-hover table-striped text-center">
           <thead>
             <tr>
@@ -57,9 +58,7 @@
               <th scope="col">Description</th>
               <th scope="col">Standard Expiry</th>
               <th scope="col">Provider</th>
-              <th></th>
-              <th></th>
-              <th></th>
+              <th scope="col">Operation</th>
             </tr>
           </thead>
           <tbody>
@@ -68,9 +67,9 @@
               <td>{{ c.Description }}</td>
               <td>{{ c.Expiry }}</td>
               <td>{{ c.Provider }}</td>
-              <td><button class="button">Deatil</button></td>
-              <td><button class="button">Edit</button></td>
-              <td><button class="button">Delete</button></td>
+              <td><button title="Detail"><img src="./img/detail.png" class="button"></button>
+                <button title="Edit"><img src="./img/edit.png" class="button"></button>
+                <button title="Delete"><img src="./img/delete.png" class="button"></button></td>
             </tr>
           </tbody>
         </table>
