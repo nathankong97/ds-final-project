@@ -81,8 +81,64 @@
             </tr>
           </tbody>
         </table>
-        <button type="button" class="btn btn-primary">Add new members</button>&nbsp&nbsp&nbsp&nbsp
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-member">Add new members</button>
+        &nbsp&nbsp&nbsp&nbsp
         <button type="button" class="btn btn-primary">Export members (CSV)</button>
+
+    <!-- Modal to add member-->
+
+        <div class="modal fade" id="add-member" tabindex="-1" role="dialog" aria-labelledby="add-new-member" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="title"><strong>Add a new Firefighter</strong></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-row form-group">
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="First name">
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="Last name">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                   <label for="formGroupExampleInput">Position</label>
+                   <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Position">
+                 </div>
+                 <div class="form-group">
+                  <label for="formGroupExampleInput">Sex</label>
+                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Sex at Birth">
+                </div>
+                <div class="form-group">
+                 <label for="formGroupExampleInput">Radio Number</label>
+                 <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Radio Number">
+                 </div>
+                 <div class="form-group">
+                   <label for="formGroupExampleInput">Station Number</label>
+                   <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Station Number">
+                 </div>
+                 <div class="form-group">
+                   <label for="formGroupExampleInput">Date of Birth</label>
+                   <input type="date" class="form-control" id="formGroupExampleInput" placeholder="Date of Birth">
+                 </div>
+                 <div class="form-group">
+                   <label for="formGroupExampleInput">Start Date</label>
+                   <input type="date" class="form-control" id="formGroupExampleInput" placeholder="Start Date">
+                 </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
