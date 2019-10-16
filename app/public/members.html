@@ -96,8 +96,8 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
+              <form @submit.prevent="handleSubmit">
               <div class="modal-body">
-                <form>
                   <div class="form-row form-group">
                     <div class="col">
                       <input type="text" class="form-control" placeholder="First name">
@@ -130,12 +130,12 @@
                    <label for="formGroupExampleInput">Start Date</label>
                    <input type="date" class="form-control" id="formGroupExampleInput" placeholder="Start Date">
                  </div>
-                </form>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
               </div>
+              </form>
             </div>
           </div>
         </div>
