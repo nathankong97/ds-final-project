@@ -9,7 +9,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/site.css">
   <link rel="icon" href="img/logo.png">
-  <title>Our Fighters</title>
+  <title>Reports</title>
 
 </head>
 
@@ -19,7 +19,7 @@
     <div class="container">
       <a class="navbar-brand main-link" href="#">
         <img src="img/logo.png" width="38" height="40" class="d-inline-block align-top" alt="">
-        Our Fire Fighter Squard</a>
+        Reports</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -29,12 +29,12 @@
             <a class="nav-link main-link" href="index.html">Home
             </a>
           </li>
-          <li class="nav-item active">
-              <a class="nav-link main-link" href="members.html">Members</a>
-              <span class="sr-only">(current)</span>
-          </li>
           <li class="nav-item">
+              <a class="nav-link main-link" href="members.html">Members</a>
+          </li>
+          <li class="nav-item active">
             <a class="nav-link main-link" href="certification.html">Certification</a>
+            <span class="sr-only">(current)</span>
           </li>
           <li class="nav-item">
             <a class="nav-link main-link" href="report.html">Reports</a>
@@ -49,40 +49,10 @@
   <div class="container">
 
     <div class="row">
-      <div class="col-lg-12 my-5" id="membersApp">
-        <h2>Firefighters</h2>
-        <table align="center" class="table table-bordered table-hover table-striped text-center">
-          <thead>
-            <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Position</th>
-              <th scope="col">Sex</th>
-              <th scope="col">Radio Number</th>
-              <th scope="col">Station Number</th>
-              <th scope="col">Active?</th>
-              <th scope="col">Date of Birth</th>
-              <th scope="col">Start Date</th>
-              <th scope="col">Operation</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="m in members">
-              <td>{{ m.Name }}</td>
-              <td>{{ m.Position }}</td>
-              <td>{{ m.Sex }}</td>
-              <td>{{ m.RadioNum }}</td>
-              <td>{{ m.StationNum }}</td>
-              <td>{{ m.isActive }}</td>
-              <td>{{ m.dob }}</td>
-              <td>{{ m.StartDate }}</td>
-              <td><button title="Detail"><img src="./img/detail.png" class="button"></button>
-                <button title="Edit"><img src="./img/edit.png" class="button"></button>
-                <button title="Delete"><img src="./img/delete.png" class="button"></button></td>
-            </tr>
-          </tbody>
-        </table>
-        <button type="button" class="btn btn-primary">Add new members</button>&nbsp&nbsp&nbsp&nbsp
-        <button type="button" class="btn btn-primary">Export members (CSV)</button>
+      <div class="col-lg-12 my-5">
+        <br><br><br>
+        Report Content goes here
+
       </div>
 
     </div>
@@ -100,7 +70,7 @@
     <!-- /.container -->
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="js/members.app.js"></script>
+  <script src="js/certifications.app.js"></script>
 </body>
 
 </html>

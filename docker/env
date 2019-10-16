@@ -3,5 +3,5 @@
 
 MYSQL_DATABASE=dataFireFinal
 MYSQL_HOST=dbmsisfirefinal.cnzhlfdkjq74.us-east-1.rds.amazonaws.com
-MYSQL_USER=adminTeam11
+MYSQL_USER=adminteam11
 MYSQL_PASSWORD=12345678
