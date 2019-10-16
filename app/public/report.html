@@ -54,6 +54,58 @@
         Report Content goes here
         <p>{{ members }}</p>
       </div>
+<!-- the reoprt table goes here-->
+
+<br><br>
+
+<!-- the reoprt for members with station, radio num and email is here-->
+<div class="col-lg-12 my-5" id="fireGuyReport">
+<h2>Firefighters contact report</h2>
+<table align="center" class="table table-bordered table-hover table-striped text-center">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Position</th>
+      <th scope="col">Station</th>
+      <th scope="col">Radio Number</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="f in Firefighters">
+      <td>{{ f.Name }}</td>
+      <td>{{ f.Position }}</td>
+      <td>{{ f.Station }}</td>
+      <td>{{ f.RadioNumber }}</td>
+      <td>{{ f.Email }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<!-- A report that lists people with expired certifications (which may be filtered by certification)-->
+<div class="col-lg-12 my-5" id="expCertApp">
+<h2>Expired Certification Report</h2>
+<table align="center" class="table table-bordered table-hover table-striped text-center">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Position</th>
+      <th scope="col">Certification</th>
+      <th scope="col">Beginning Date</th>
+      <th scope="col">Expiration Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="e in ExpCerts">
+      <td>{{ e.Name }}</td>
+      <td>{{ e.Position }}</td>
+      <td>{{ e.Certification }}</td>
+      <td>{{ e.BeginningDate }}</td>
+      <td>{{ e.ExpirationDate }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
     </div>
     <!-- /.row -->
@@ -70,8 +122,9 @@
     <!-- /.container -->
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="js/certifications.app.js"></script>
   <script src="js/membersCertification.app.js"></script>
+  <script src="js/fireGuyReport.app.js"></script>
+  <script src="js/expCertApp.app.js"></script>
 </body>
 
 </html>
