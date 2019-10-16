@@ -5,7 +5,7 @@ var expCertApp = new Vue({
   },
   methods: {
     fetchExpCerts() {
-      fetch('api/membersWithCertification/index.php')
+      fetch('api/membersWithCertification/expCerts.php')
       .then(response => response.json())
       .then(json => { expCertApp.ExpCerts = json })
     }
