@@ -73,11 +73,11 @@
   </thead>
   <tbody>
     <tr v-for="f in Firefighters">
-      <td>{{ f.Name }}</td>
-      <td>{{ f.Position }}</td>
-      <td>{{ f.Station }}</td>
-      <td>{{ f.RadioNumber }}</td>
-      <td>{{ f.Email }}</td>
+      <td>{{ f.firstName }} & " " & {{ f.lastName }}</td>
+      <td>{{ f.position }}</td>
+      <td>{{ f.stationNumber }}</td>
+      <td>{{ f.radioNumber }}</td>
+      <td></td>
     </tr>
   </tbody>
 </table>
@@ -97,11 +97,11 @@
   </thead>
   <tbody>
     <tr v-for="e in ExpCerts">
-      <td>{{ e.Name }}</td>
-      <td>{{ e.Position }}</td>
-      <td>{{ e.Certification }}</td>
-      <td>{{ e.BeginningDate }}</td>
-      <td>{{ e.ExpirationDate }}</td>
+      <td>{{ e.firstName }} & " " & {{ e.lastName }}</td>
+      <td>{{ e.position }}</td>
+      <td>{{ e.certificationName }}</td>
+      <td>{{ e.renewedDate }}</td>
+      <td>{{ e.expirationDate }}</td>
     </tr>
   </tbody>
 </table>

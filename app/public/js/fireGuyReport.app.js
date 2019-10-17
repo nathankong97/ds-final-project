@@ -5,7 +5,7 @@ var fireGuyReport = new Vue({
   },
   methods: {
     fetchFirefighters() {
-      fetch('../api/fireGuyReport.php')
+      fetch('api/reports/firefighters.php')
       .then(response => response.json())
       .then(json => { fireGuyReport.Firefighters = json })
     }

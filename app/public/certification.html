@@ -63,10 +63,10 @@
           </thead>
           <tbody>
             <tr v-for="c in certifications">
-              <td>{{ c.Name }}</td>
+              <td>{{ c.certificationName }}</td>
               <td>{{ c.Description }}</td>
-              <td>{{ c.Expiry }}</td>
-              <td>{{ c.Provider }}</td>
+              <td>{{ c.defaultExpirationPd }}</td>
+              <td>{{ c.certifyingAgency }}</td>
               <td><button title="Detail"><img src="./img/detail.png" class="button"></button>
                 <button title="Edit"><img src="./img/edit.png" class="button"></button>
                 <button title="Delete"><img src="./img/delete.png" class="button"></button></td>
