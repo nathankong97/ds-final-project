@@ -15,6 +15,7 @@
 
 <body>
 
+  <!-- Navigation -->
   <nav class="navbar navbar-expand-lg fixed-top nav-color">
     <div class="container">
       <a class="navbar-brand main-link" href="#">
@@ -83,13 +84,21 @@
         <div class="modal-dialog" role="document" id="memberDetailApp">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Contact Us</h5>
+              <h5 class="modal-title">Detail Information with: <strong>{{ member.firstName }} {{ member.lastName }}</strong></h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body text-center">
-              <p>{{ member.firstName }}</p>
+              <p><b>Position:</b> {{ member.position }}</p>
+              <p><b>Sex:</b> {{ member.sexAtBirth }}</p>
+              <p><b>Address:</b> {{ member.address }}</p>
+              <p><b>Phone:</b> {{ member.workPhone }}</p>
+              <p><b>Radio Number:</b> {{ member.radioNumber }}</p>
+              <p><b>Station Number:</b> {{ member.stationNumber }}</p>
+              <p><b>Status:</b> {{ member.isActive }}</p>
+              <p><b>Birthdate:</b> {{ member.dob }}</p>
+              <p><b>Start Date:</b> {{ member.startDate }}</p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -97,6 +106,7 @@
           </div>
         </div>
       </div>
+  <!-- Ending for detail information modal-->
 
 
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-member">Add new members</button>
@@ -113,13 +123,15 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <form @submit.prevent="handleSubmit">
               <div class="modal-body">
+                <form @submit.prevent="handleSubmit">
                   <div class="form-row form-group">
                     <div class="col">
+                      <label for="formGroupExampleInput">First Name</label>
                       <input type="text" class="form-control" placeholder="First name">
                     </div>
                     <div class="col">
+                      <label for="formGroupExampleInput">Last Name</label>
                       <input type="text" class="form-control" placeholder="Last name">
                     </div>
                   </div>
@@ -132,6 +144,14 @@
                   <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Sex at Birth">
                 </div>
                 <div class="form-group">
+                 <label for="formGroupExampleInput">Address</label>
+                 <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Address">
+               </div>
+               <div class="form-group">
+                <label for="formGroupExampleInput">Work Phone</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Work Phone">
+              </div>
+                <div class="form-group">
                  <label for="formGroupExampleInput">Radio Number</label>
                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Radio Number">
                  </div>
@@ -139,6 +159,25 @@
                    <label for="formGroupExampleInput">Station Number</label>
                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Station Number">
                  </div>
+                 <fieldset class="form-group">
+                  <div class="row">
+                    <legend class="col-form-label col-sm-2 pt-0">Status</legend>
+                    <div class="col-sm-10">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                        <label class="form-check-label" for="gridRadios1">
+                          Active
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                        <label class="form-check-label" for="gridRadios2">
+                          Not Active
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
                  <div class="form-group">
                    <label for="formGroupExampleInput">Date of Birth</label>
                    <input type="date" class="form-control" id="formGroupExampleInput" placeholder="Date of Birth">
@@ -147,12 +186,13 @@
                    <label for="formGroupExampleInput">Start Date</label>
                    <input type="date" class="form-control" id="formGroupExampleInput" placeholder="Start Date">
                  </div>
+                 </form>
               </div>
               <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
               </div>
-              </form>
+
             </div>
           </div>
         </div>
@@ -174,7 +214,7 @@
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="js/members.app.js"></script>
-  <script src="js/memberDetailApp.app.js"></script>
+  <script src="js/memberDetail.app.js"></script>
 </body>
 
 </html>
