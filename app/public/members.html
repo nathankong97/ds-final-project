@@ -49,8 +49,9 @@
   <div class="container">
 
     <div class="row">
-      <div class="col-lg-12 my-5" id="membersApp">
+      <div class="col-lg-12 my-5">
         <h2>Firefighters</h2>
+        <div id="membersApp">
         <table align="center" class="table table-bordered table-hover table-striped text-center">
           <thead>
             <tr>
@@ -69,43 +70,35 @@
               <td>{{ m.radioNumber }}</td>
               <td>{{ m.stationNumber }}</td>
               <td>{{ m.isActive }}</td>
-              <td><button title="Detail" data-toggle="modal" data-target="#modal-detail"><img src="./img/detail.png" class="button"></button>
+              <td><button title="Detail" @click="handleClick(m)" data-toggle="modal" data-target="#modal-detail"><img src="./img/detail.png" class="button"></button>
                 <button title="Edit"><img src="./img/edit.png" class="button"></button>
                 <button title="Delete"><img src="./img/delete.png" class="button"></button></td>
-
-                <!-- Modal to see more detail in each member-->
-                  <div class="modal fade" id="modal-detail" tabindex="-1" role="dialog" aria-labelledby="member-detail-info" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel"></h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body text-center">
-                          <p><b>Name:</b> Oconee County Fire Rescue</p>
-                          <p><b>Email:</b> msis.team11@ocfr.org</p>
-                          <p><b>Phone:</b> 706-769-3975</p>
-                          <p><b>Address:</b> 1291 Greensboro Highway Watkinsville, GA 30677</p>
-                          <div class="footer-social-icons">
-                              <ul class="social-icons">
-                                  <li><a href="https://www.facebook.com" target="_blank" class="social-icon"> <i class="fa fa-facebook"></i></a></li>
-                                  <li><a href="https://www.twitter.com" target="_blank" class="social-icon"> <i class="fa fa-twitter"></i></a></li>
-                                  <li><a href="https://www.youtube.com" target="_blank" class="social-icon"> <i class="fa fa-youtube"></i></a></li>
-                              </ul>
-                          </div>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
             </tr>
           </tbody>
         </table>
+      </div>
+
+  <!-- Modal to view members detail-->
+      <div class="modal fade" id="modal-detail" tabindex="-1" role="dialog" aria-labelledby="detail-information" aria-hidden="true">
+        <div class="modal-dialog" role="document" id="memberDetailApp">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Contact Us</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body text-center">
+              <p>{{ member.firstName }}</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-member">Add new members</button>
         &nbsp&nbsp&nbsp&nbsp
         <button type="button" class="btn btn-primary">Export members (CSV)</button>
@@ -181,6 +174,7 @@
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="js/members.app.js"></script>
+  <script src="js/memberDetailApp.app.js"></script>
 </body>
 
 </html>
