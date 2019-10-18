@@ -79,7 +79,7 @@
         </table>
       </div>
 
-  <!-- Modal to view members detail-->
+      <!-- Modal to view members detail-->
       <div class="modal fade" id="modal-detail" tabindex="-1" role="dialog" aria-labelledby="detail-information" aria-hidden="true">
         <div class="modal-dialog" role="document" id="memberDetailApp">
           <div class="modal-content">
@@ -106,7 +106,9 @@
           </div>
         </div>
       </div>
-  <!-- Ending for detail information modal-->
+      <!-- Ending for detail information modal-->
+
+      <!-- Modal to update/edit members-->
 
 
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-member">Add new members</button>
@@ -127,12 +129,12 @@
                 <form @submit.prevent="handleSubmit">
                   <div class="form-row form-group">
                     <div class="col">
-                      <label for="formGroupExampleInput">First Name</label>
+                      <label for="inputFirstName">First Name</label>
                       <input type="text" class="form-control" placeholder="First name">
                     </div>
                     <div class="col">
                       <label for="formGroupExampleInput">Last Name</label>
-                      <input type="text" class="form-control" placeholder="Last name">
+                      <input type="text" class="form-control" id="inputFirstName" v-model="recordPatient.firstName" placeholder="Last name">
                     </div>
                   </div>
                   <div class="form-group">
@@ -192,11 +194,11 @@
                    <label for="formGroupExampleInput">Start Date</label>
                    <input type="date" class="form-control" id="formGroupExampleInput" placeholder="Start Date">
                  </div>
-                 </form>
-              </div>
-              <div class="modal-footer">
+                    <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              </div>
+                 </form>
               </div>
 
             </div>
