@@ -8,6 +8,9 @@ var membersApp = new Vue({
       fetch('api/firefighters/index.php')
       .then(response => response.json())
       .then(json => { membersApp.members = json })
+    },
+    handleClick(member) {
+      memberDetailApp.member = member;
     }
   },
   created() {
