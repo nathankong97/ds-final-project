@@ -55,16 +55,14 @@
           <thead>
             <tr>
               <th scope="col">Name</th>
-              <th scope="col">Description</th>
               <th scope="col">Standard Expiry</th>
-              <th scope="col">Provider</th>
+              <th scope="col">Agency</th>
               <th scope="col">Operation</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="c in certifications">
               <td>{{ c.certificationName }}</td>
-              <td>{{ c.Description }}</td>
               <td>{{ c.defaultExpirationPd }}</td>
               <td>{{ c.certifyingAgency }}</td>
               <td><button title="Detail"><img src="./img/detail.png" class="button"></button>
