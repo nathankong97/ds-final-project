@@ -9,19 +9,25 @@ $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
 $stmt = $db->prepare(
-  'INSERT INTO Patient
-    (patientGuid, firstName, lastName, dob, sexAtBirth)
-  VALUES (?, ?, ?, ?, ?)'
+  'INSERT INTO Member 
+  (memberGuid, firstName, lastName, position, sexAtBirth, address, workPhone, radioNumber, stationNumber, isActive, dob, startDate)
+  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
 );
 
 $stmt->execute([
   $guid,
   $_POST['firstName'],
   $_POST['lastName'],
+  $_POST['position'],
+  $_POST['sex'],
+  $_POST['address'],
+  $_POST['phone'],
+  $_POST['radionum'],
+  $_POST['stationnum'],
+  $_POST['status'],
   $_POST['dob'],
-  $_POST['sexAtBirth']
+  $_POST['startdate']
 ]);
 
 // Step 4: Output
 header('HTTP/1.1 303 See Other');
-header('Location: ../records/?guid='.$guid);

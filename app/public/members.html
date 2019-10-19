@@ -50,6 +50,7 @@
   <div class="container">
 
     <div class="row">
+      <!-- Box size -->
       <div class="col-lg-12 my-5">
         <h2>Firefighters</h2>
         <div id="membersApp">
@@ -110,7 +111,6 @@
 
       <!-- Modal to update/edit members-->
 
-
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-member">Add new members</button>
         &nbsp&nbsp&nbsp&nbsp
         <button type="button" class="btn btn-primary">Export members (CSV)</button>
@@ -121,45 +121,42 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="title"><strong>Add a new Firefighter</strong></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
               </div>
-              <div class="modal-body">
+              <div class="modal-body" id="membersApp">
                 <form @submit.prevent="handleSubmit">
                   <div class="form-row form-group">
                     <div class="col">
                       <label for="inputFirstName">First Name</label>
-                      <input type="text" class="form-control" placeholder="First name">
+                      <input type="text" class="form-control" id="inputFirstName" v-model="member.firstName" placeholder="First name">
                     </div>
                     <div class="col">
-                      <label for="formGroupExampleInput">Last Name</label>
-                      <input type="text" class="form-control" id="inputFirstName" v-model="recordPatient.firstName" placeholder="Last name">
+                      <label for="inputLastName">Last Name</label>
+                      <input type="text" class="form-control" id="inputLastName" v-model="member.lastName" placeholder="Last name">
                     </div>
                   </div>
                   <div class="form-group">
-                   <label for="formGroupExampleInput">Position</label>
-                   <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Position">
+                   <label for="inputPosition">Position</label>
+                   <input type="text" class="form-control" id="inputPosition" v-model="member.position" placeholder="Position">
                  </div>
                  <div class="form-group">
-                  <label for="formGroupExampleInput">Sex</label>
-                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Sex at Birth">
+                  <label for="inputsex">Sex</label>
+                  <input type="text" class="form-control" id="inputsex" v-model="member.sex" maxlength="1" pattern="[A-Za-z]" placeholder="Sex at Birth: M|F">
                 </div>
                 <div class="form-group">
-                 <label for="formGroupExampleInput">Address</label>
-                 <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Address">
+                 <label for="inputaddress">Address</label>
+                 <input type="text" class="form-control" id="inputaddress" v-model="member.address" placeholder="Address">
                </div>
                <div class="form-group">
-                <label for="formGroupExampleInput">Work Phone</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Work Phone">
+                <label for="inputphone">Work Phone</label>
+                <input type="text" class="form-control" id="inputphone" v-model="member.phone" placeholder="Work Phone">
               </div>
                 <div class="form-group">
-                 <label for="formGroupExampleInput">Radio Number</label>
-                 <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Radio Number">
+                 <label for="inputRadioNum">Radio Number</label>
+                 <input type="text" class="form-control" id="inputRadioNum" v-model="member.radionum" placeholder="Radio Number">
                  </div>
                  <div class="form-group">
-                   <label for="formGroupExampleInput">Station Number</label>
-                   <select class="form-control" id="exampleFormControlSelect2">
+                   <label for="inputStationNum">Station Number</label>
+                   <select class="form-control" id="inputStationNum" v-model="member.stationnum">
                     <option></option>
                     <option>All</option>
                     <option>1</option>
@@ -167,43 +164,32 @@
                     <option>3</option>
                   </select>
                  </div>
-                 <fieldset class="form-group">
-                  <div class="row">
-                    <legend class="col-form-label col-sm-2 pt-0">Status</legend>
-                    <div class="col-sm-10">
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                        <label class="form-check-label" for="gridRadios1">
-                          Active
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                        <label class="form-check-label" for="gridRadios2">
-                          Not Active
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </fieldset>
                  <div class="form-group">
-                   <label for="formGroupExampleInput">Date of Birth</label>
-                   <input type="date" class="form-control" id="formGroupExampleInput" placeholder="Date of Birth">
+                   <label for="inputStatus">Status</label>
+                   <select class="form-control" id="inputStatus" v-model="member.status">
+                    <option></option>
+                    <option>Active</option>
+                    <option>Not Active</option>
+                  </select>
                  </div>
                  <div class="form-group">
-                   <label for="formGroupExampleInput">Start Date</label>
-                   <input type="date" class="form-control" id="formGroupExampleInput" placeholder="Start Date">
+                   <label for="inputdob">Date of Birth</label>
+                   <input type="date" class="form-control" id="inputdob" v-model="member.dob" placeholder="Date of Birth">
                  </div>
-                    <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-              </div>
+                 <div class="form-group">
+                   <label for="inputStartDate">Start Date</label>
+                   <input type="date" class="form-control" id="inputStartDate" v-model="member.startdate" placeholder="Start Date">
+                 </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
                  </form>
               </div>
-
             </div>
           </div>
         </div>
+
       </div>
 
     </div>
