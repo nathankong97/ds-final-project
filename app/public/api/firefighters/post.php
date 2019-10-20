@@ -2,8 +2,7 @@
 //Step 0:Validate incoming datase (Arlie entered)
 use Ramsey\Uuid\Uuid;
 
-$uuid4= Uuid4();
-$guid= $uuid4->toSring(); //i.e. 25786-5859486-4485...
+
 
 // Step 1: Get a datase connection from our help class
 $db = DbConnection:: getConnection;
@@ -12,8 +11,12 @@ $Statement
 $stmt =$db -> Prepare (
   'INSERT INTO Member
     (memberGuid, firstName, lastName, position, sexAtBirth, address, workPhone, radioNumber, stationNumber,  isActive, dob, startDate)
-  VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)'
+  VALUES (?,?,?,?,?,?,?,?,?,?,?,?)'
 );
+
+$uuid4= Uuid4();
+$guid= $uuid4->toSring(); //i.e. 25786-5859486-4485...
+//$guid = Uuid::uuid4()->toString();
 
 $stmt-> execute ([
   $guid, //ie 257......
@@ -23,17 +26,16 @@ $stmt-> execute ([
   $_POST ['sexAtBirth'],
   $_POST ['address'],
   $_POST ['workPhone'],
-  $_POST ['workPhone'],
   $_POST ['radioNumber'],
   $_POST ['stationNumber'],
   $_POST ['isActive'],
   $_POST ['dob'],
-  $_POST ['startDate']
+  $_POST ['startDate'],
 ]);
 
 //Step 4: fann_descale_output
 header('HTTO/1.1 303 See Other');
-header('Location: ../firefighters/?guid='$guid);//<- pulls only one record (dots connect strings so 'loaction' is a string and $guid is a string)
+header('Location: ../firefighters/?guid='.$guid);//<- pulls only one record (dots connect strings so 'location' is a string and $guid is a string)
 /*Our database needs a primary key= Globally unique identifier GUID
 he googled php create guid*/
 
