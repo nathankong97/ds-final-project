@@ -140,7 +140,7 @@
                  </div>
                  <div class="form-group">
                   <label for="inputsex">Sex</label>
-                  <input type="text" class="form-control" id="inputsex" v-model="member.sex" maxlength="1" pattern="[A-Za-z]" placeholder="Sex at Birth: M|F">
+                  <input type="text" class="form-control" id="inputsex" v-model="member.sexAtBirth" maxlength="1" pattern="[A-Za-z]" placeholder="Sex at Birth: M|F">
                 </div>
                 <div class="form-group">
                  <label for="inputaddress">Address</label>
@@ -148,15 +148,15 @@
                </div>
                <div class="form-group">
                 <label for="inputphone">Work Phone</label>
-                <input type="text" class="form-control" id="inputphone" v-model="member.phone" placeholder="Work Phone">
+                <input type="text" class="form-control" id="inputphone" v-model="member.workPhone" placeholder="Work Phone">
               </div>
                 <div class="form-group">
                  <label for="inputRadioNum">Radio Number</label>
-                 <input type="text" class="form-control" id="inputRadioNum" v-model="member.radionum" placeholder="Radio Number">
+                 <input type="text" class="form-control" id="inputRadioNum" v-model="member.radioNumber" placeholder="Radio Number">
                  </div>
                  <div class="form-group">
                    <label for="inputStationNum">Station Number</label>
-                   <select class="form-control" id="inputStationNum" v-model="member.stationnum">
+                   <select class="form-control" id="inputStationNum" v-model="member.stationNumber">
                     <option></option>
                     <option>All</option>
                     <option>1</option>
@@ -166,7 +166,7 @@
                  </div>
                  <div class="form-group">
                    <label for="inputStatus">Status</label>
-                   <select class="form-control" id="inputStatus" v-model="member.status">
+                   <select class="form-control" id="inputStatus" v-model="member.isActive">
                     <option></option>
                     <option>Active</option>
                     <option>Not Active</option>
@@ -178,7 +178,7 @@
                  </div>
                  <div class="form-group">
                    <label for="inputStartDate">Start Date</label>
-                   <input type="date" class="form-control" id="inputStartDate" v-model="member.startdate" placeholder="Start Date">
+                   <input type="date" class="form-control" id="inputStartDate" v-model="member.startDate" placeholder="Start Date">
                  </div>
                 <div class="modal-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>

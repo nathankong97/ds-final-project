@@ -26,7 +26,7 @@ var membersApp = new Vue({
       });
       this.handleReset();
     },
-    handleClick(member) {
+    handleClick(member) { //check if row is needed here//
       memberDetailApp.member = member;
     }
   },
