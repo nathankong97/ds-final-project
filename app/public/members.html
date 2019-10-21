@@ -15,6 +15,7 @@
 
 <body>
 
+  <!-- Navigation -->
   <nav class="navbar navbar-expand-lg fixed-top nav-color">
     <div class="container">
       <a class="navbar-brand main-link" href="#">
@@ -49,8 +50,10 @@
   <div class="container">
 
     <div class="row">
-      <div class="col-lg-12 my-5" id="membersApp">
+      <!-- Box size -->
+      <div class="col-lg-12 my-5">
         <h2>Firefighters</h2>
+        <div id="membersApp">
         <table align="center" class="table table-bordered table-hover table-striped text-center">
           <thead>
             <tr>
@@ -69,43 +72,45 @@
               <td>{{ m.radioNumber }}</td>
               <td>{{ m.stationNumber }}</td>
               <td>{{ m.isActive }}</td>
-              <td><button title="Detail" data-toggle="modal" data-target="#modal-detail"><img src="./img/detail.png" class="button"></button>
+              <td><button title="Detail" @click="handleClick(m)" data-toggle="modal" data-target="#modal-detail"><img src="./img/detail.png" class="button"></button>
                 <button title="Edit"><img src="./img/edit.png" class="button"></button>
                 <button title="Delete"><img src="./img/delete.png" class="button"></button></td>
-
-                <!-- Modal to see more detail in each member-->
-                  <div class="modal fade" id="modal-detail" tabindex="-1" role="dialog" aria-labelledby="member-detail-info" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel"></h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body text-center">
-                          <p><b>Name:</b> Oconee County Fire Rescue</p>
-                          <p><b>Email:</b> msis.team11@ocfr.org</p>
-                          <p><b>Phone:</b> 706-769-3975</p>
-                          <p><b>Address:</b> 1291 Greensboro Highway Watkinsville, GA 30677</p>
-                          <div class="footer-social-icons">
-                              <ul class="social-icons">
-                                  <li><a href="https://www.facebook.com" target="_blank" class="social-icon"> <i class="fa fa-facebook"></i></a></li>
-                                  <li><a href="https://www.twitter.com" target="_blank" class="social-icon"> <i class="fa fa-twitter"></i></a></li>
-                                  <li><a href="https://www.youtube.com" target="_blank" class="social-icon"> <i class="fa fa-youtube"></i></a></li>
-                              </ul>
-                          </div>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <!-- Modal to view members detail-->
+      <div class="modal fade" id="modal-detail" tabindex="-1" role="dialog" aria-labelledby="detail-information" aria-hidden="true">
+        <div class="modal-dialog" role="document" id="memberDetailApp">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Detail Information with: <strong>{{ member.firstName }} {{ member.lastName }}</strong></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body text-center">
+              <p><b>Position:</b> {{ member.position }}</p>
+              <p><b>Sex:</b> {{ member.sexAtBirth }}</p>
+              <p><b>Address:</b> {{ member.address }}</p>
+              <p><b>Phone:</b> {{ member.workPhone }}</p>
+              <p><b>Radio Number:</b> {{ member.radioNumber }}</p>
+              <p><b>Station Number:</b> {{ member.stationNumber }}</p>
+              <p><b>Status:</b> {{ member.isActive }}</p>
+              <p><b>Birthdate:</b> {{ member.dob }}</p>
+              <p><b>Start Date:</b> {{ member.startDate }}</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Ending for detail information modal-->
+
+      <!-- Modal to update/edit members-->
+
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-member">Add new members</button>
         &nbsp&nbsp&nbsp&nbsp
         <button type="button" class="btn btn-primary">Export members (CSV)</button>
@@ -116,53 +121,75 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="title"><strong>Add a new Firefighter</strong></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
               </div>
-              <form @submit.prevent="handleSubmit">
-              <div class="modal-body">
+              <div class="modal-body" id="membersApp">
+                <form @submit.prevent="handleSubmit">
                   <div class="form-row form-group">
                     <div class="col">
-                      <input type="text" class="form-control" placeholder="First name">
+                      <label for="inputFirstName">First Name</label>
+                      <input type="text" class="form-control" id="inputFirstName" v-model="member.firstName" placeholder="First name">
                     </div>
                     <div class="col">
-                      <input type="text" class="form-control" placeholder="Last name">
+                      <label for="inputLastName">Last Name</label>
+                      <input type="text" class="form-control" id="inputLastName" v-model="member.lastName" placeholder="Last name">
                     </div>
                   </div>
                   <div class="form-group">
-                   <label for="formGroupExampleInput">Position</label>
-                   <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Position">
+                   <label for="inputPosition">Position</label>
+                   <input type="text" class="form-control" id="inputPosition" v-model="member.position" placeholder="Position">
                  </div>
                  <div class="form-group">
-                  <label for="formGroupExampleInput">Sex</label>
-                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Sex at Birth">
+                  <label for="inputsex">Sex</label>
+                  <input type="text" class="form-control" id="inputsex" v-model="member.sexAtBirth" maxlength="1" pattern="[A-Za-z]" placeholder="Sex at Birth: M|F">
                 </div>
                 <div class="form-group">
-                 <label for="formGroupExampleInput">Radio Number</label>
-                 <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Radio Number">
-                 </div>
-                 <div class="form-group">
-                   <label for="formGroupExampleInput">Station Number</label>
-                   <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Station Number">
-                 </div>
-                 <div class="form-group">
-                   <label for="formGroupExampleInput">Date of Birth</label>
-                   <input type="date" class="form-control" id="formGroupExampleInput" placeholder="Date of Birth">
-                 </div>
-                 <div class="form-group">
-                   <label for="formGroupExampleInput">Start Date</label>
-                   <input type="date" class="form-control" id="formGroupExampleInput" placeholder="Start Date">
-                 </div>
+                 <label for="inputaddress">Address</label>
+                 <input type="text" class="form-control" id="inputaddress" v-model="member.address" placeholder="Address">
+               </div>
+               <div class="form-group">
+                <label for="inputphone">Work Phone</label>
+                <input type="text" class="form-control" id="inputphone" v-model="member.workPhone" placeholder="Work Phone">
               </div>
-              <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <div class="form-group">
+                 <label for="inputRadioNum">Radio Number</label>
+                 <input type="text" class="form-control" id="inputRadioNum" v-model="member.radioNumber" placeholder="Radio Number">
+                 </div>
+                 <div class="form-group">
+                   <label for="inputStationNum">Station Number</label>
+                   <select class="form-control" id="inputStationNum" v-model="member.stationNumber">
+                    <option></option>
+                    <option>All</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                  </select>
+                 </div>
+                 <div class="form-group">
+                   <label for="inputStatus">Status</label>
+                   <select class="form-control" id="inputStatus" v-model="member.isActive">
+                    <option></option>
+                    <option>Active</option>
+                    <option>Not Active</option>
+                  </select>
+                 </div>
+                 <div class="form-group">
+                   <label for="inputdob">Date of Birth</label>
+                   <input type="date" class="form-control" id="inputdob" v-model="member.dob" placeholder="Date of Birth">
+                 </div>
+                 <div class="form-group">
+                   <label for="inputStartDate">Start Date</label>
+                   <input type="date" class="form-control" id="inputStartDate" v-model="member.startDate" placeholder="Start Date">
+                 </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+                 </form>
               </div>
-              </form>
             </div>
           </div>
         </div>
+
       </div>
 
     </div>
@@ -181,6 +208,7 @@
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="js/members.app.js"></script>
+  <script src="js/memberDetail.app.js"></script>
 </body>
 
 </html>

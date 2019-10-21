@@ -1,11 +1,13 @@
 {
-    "name": "iu-msis/team-11-final-project",
-    "description": "Final Project for Team 11",
+    "name": "Team 11",
+    "description": "OCFR Information Systems for Team 11 Final Project",
     "license": "private",
     "authors": [{
         "name": "Nathan Kong"
     }],
-    "require": {},
+    "require": {
+      "ramsey/uuid": "^3.8"
+    },
     "autoload": {
         "classmap": ["class/DbConnection.php"]
     }
