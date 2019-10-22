@@ -18,13 +18,8 @@ var membersApp = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
-      .then( response => response.json() )
-      .then( json => {membersApp.members.push( json[0] )})
-      .catch( err => {
-        console.error('RECORD POST ERROR:');
-        console.error(err);
-      });
-      this.handleReset();
+      .then( response => response.json())
+      .then( json => {membersApp.members= json })
     },
     handleClick(member) { //check if row is needed here//
       memberDetailApp.member = member;

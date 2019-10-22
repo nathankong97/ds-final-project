@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="icon" href="img/logo.png">
+  <title>Certifications</title>
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg fixed-top nav-color">
+    <div class="container">
+      <a class="navbar-brand main-link" href="#">
+        <img src="img/logo.png" width="38" height="40" class="d-inline-block align-top" alt="">
+        Certifications</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link main-link" href="index.html">Home
+            </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link main-link" href="members.html">Members</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link main-link" href="certification.html">Certification</a>
+            <span class="sr-only">(current)</span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link main-link" href="report.html">Reports</a>
+
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-12 my-5" id="membersApp">
+        <h2>Add a new member</h2>
+
+        <form @submit.prevent="handleSubmit">
+          <div class="form-row form-group">
+            <div class="col">
+              <label for="inputFirstName">First Name</label>
+              <input type="text" class="form-control" id="inputFirstName" v-model="member.firstName" placeholder="First name">
+            </div>
+            <div class="col">
+              <label for="inputLastName">Last Name</label>
+              <input type="text" class="form-control" id="inputLastName" v-model="member.lastName" placeholder="Last name">
+            </div>
+          </div>
+          <div class="form-group">
+           <label for="inputPosition">Position</label>
+           <input type="text" class="form-control" id="inputPosition" v-model="member.position" placeholder="Position">
+         </div>
+         <div class="form-group">
+          <label for="inputsex">Sex</label>
+          <input type="text" class="form-control" id="inputsex" v-model="member.sexAtBirth" maxlength="1" pattern="[A-Za-z]" placeholder="Sex at Birth: M|F">
+        </div>
+        <div class="form-group">
+         <label for="inputaddress">Address</label>
+         <input type="text" class="form-control" id="inputaddress" v-model="member.address" placeholder="Address">
+       </div>
+       <div class="form-group">
+        <label for="inputphone">Work Phone</label>
+        <input type="text" class="form-control" id="inputphone" v-model="member.workPhone" placeholder="Work Phone">
+      </div>
+        <div class="form-group">
+         <label for="inputRadioNum">Radio Number</label>
+         <input type="text" class="form-control" id="inputRadioNum" v-model="member.radioNumber" placeholder="Radio Number">
+         </div>
+         <div class="form-group">
+           <label for="inputStationNum">Station Number</label>
+           <select class="form-control" id="inputStationNum" v-model="member.stationNumber">
+            <option></option>
+            <option>All</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+          </select>
+         </div>
+         <div class="form-group">
+           <label for="inputStatus">Status</label>
+           <select class="form-control" id="inputStatus" v-model="member.isActive">
+            <option></option>
+            <option>Active</option>
+            <option>Not Active</option>
+          </select>
+         </div>
+         <div class="form-group">
+           <label for="inputdob">Date of Birth</label>
+           <input type="date" class="form-control" id="inputdob" v-model="member.dob" placeholder="Date of Birth">
+         </div>
+         <div class="form-group">
+           <label for="inputStartDate">Start Date</label>
+           <input type="date" class="form-control" id="inputStartDate" v-model="member.startDate" placeholder="Start Date">
+         </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
+         </form>
+        <p>{{ member }}</p>
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; MSIS Team 11: Leavin' Yah Crimson</p>
+      <p class="m-0 text-center text-white">Nathan - Arlie - David - Sanyam</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/members.app.js"></script>
+</body>
+
+</html>
