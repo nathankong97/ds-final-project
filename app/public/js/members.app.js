@@ -19,7 +19,7 @@ var membersApp = new Vue({
         }
       })
       .then( response => response.json())
-      .then( json => {membersApp.members= json })
+      .then( json => {membersApp.members= json[0] })
     },
     handleClick(member) { //check if row is needed here//
       memberDetailApp.member = member;
