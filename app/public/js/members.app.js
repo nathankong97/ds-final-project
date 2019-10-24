@@ -21,8 +21,16 @@ var membersApp = new Vue({
       window.alert("Member was created");
       window.location.href = 'members.html';
     },
-    handleClick(member) { //check if row is needed here//
-      memberDetailApp.member = member;
+    handleClick(m) { //check if row is needed here//
+      fetch('api/membersWithCertification/index.php', {
+        method: 'POST',
+        body: JSON.stringify(m),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      }).then(response => response.json())
+        .then(json => { memberDetailApp.memberCert = json })
+      memberDetailApp.member = m;
     },
     handleEdit(m) {
       window.location.href = 'editmember.html?memberGuid='+m.memberGuid;

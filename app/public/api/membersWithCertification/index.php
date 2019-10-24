@@ -4,8 +4,14 @@
 $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
-$stmt = $db->prepare('SELECT * FROM CertificationAssociation');
-$stmt->execute();
+$stmt = $db->prepare('SELECT m.firstName, c.certificationName
+FROM Member m, CertificationAssociation ca, Certification c
+WHERE m.memberGuid = ca.memberGuid AND c.certificationId = ca.certificationId AND m.memberGuid = ?');
+
+$stmt->execute([
+  $_POST['memberGuid']
+]);
+
 $association = $stmt->fetchAll();
 
 // Step 3: Convert to JSON

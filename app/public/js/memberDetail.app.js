@@ -1,7 +1,8 @@
 var memberDetailApp = new Vue({
   el: '#memberDetailApp',
   data: {
-    member: {}
+    member: {},
+    memberCert:{}
   },
   methods: {
     handleReset() {

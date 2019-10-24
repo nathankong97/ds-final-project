@@ -91,15 +91,22 @@
               </button>
             </div>
             <div class="modal-body text-center">
-              <p><b>Position:</b> {{ member.position }}</p>
-              <p><b>Sex:</b> {{ member.sexAtBirth }}</p>
-              <p><b>Address:</b> {{ member.address }}</p>
-              <p><b>Phone:</b> {{ member.workPhone }}</p>
-              <p><b>Radio Number:</b> {{ member.radioNumber }}</p>
-              <p><b>Station Number:</b> {{ member.stationNumber }}</p>
-              <p><b>Status:</b> {{ member.isActive }}</p>
-              <p><b>Birthdate:</b> {{ member.dob }}</p>
-              <p><b>Start Date:</b> {{ member.startDate }}</p>
+              <table class="table table-striped text-center">
+                <tr><td>Position</td><td>{{ member.position }}</td></tr>
+                <tr><td>Sex</td><td>{{ member.position }}</td></tr>
+                <tr><td>Position</td><td>{{ member.sexAtBirth }}</td></tr>
+                <tr><td>Address</td><td>{{ member.address }}</td></tr>
+                <tr><td>Phone</td><td>{{ member.workPhone }}</td></tr>
+                <tr><td>Radio Number</td><td>{{ member.radioNumber }}</td></tr>
+                <tr><td>Station Number</td><td>{{ member.position }}</td></tr>
+                <tr><td>Status</td><td>{{ member.isActive }}</td></tr>
+                <tr><td>Birthdate</td><td>{{ member.dob }}</td></tr>
+                <tr><td>Start Date</td><td>{{ member.startDate }}</td></tr>
+                <tr><td>Certification</td><td>
+                  <ul v-for="c in memberCert">
+                    <li>{{ c.certificationName }}</li>
+                  </ul>
+              </table>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
