@@ -73,8 +73,8 @@
               <td>{{ m.stationNumber }}</td>
               <td>{{ m.isActive }}</td>
               <td><button title="Detail" @click="handleClick(m)" data-toggle="modal" data-target="#modal-detail"><img src="./img/detail.png" class="button"></button>
-                <button title="Edit" @click="handleEdit(m)" onclick="location.href='editmember.html'"><img src="./img/edit.png" class="button"></button>
-                <button title="Delete"><img src="./img/delete.png" class="button"></button></td>
+                <button title="Edit" @click="handleEdit(m)"><img src="./img/edit.png" class="button"></button>
+                <button title="Delete" @click="handleDelete(m)"><img src="./img/delete.png" class="button"></button></td>
             </tr>
           </tbody>
         </table>
@@ -109,7 +109,6 @@
       </div>
       <!-- Ending for detail information modal-->
 
-      <!-- Modal to update/edit members-->
         <button type="button" class="btn btn-primary" onclick="location.href='newmember.html'">Add new members</button>
 
       </div>
