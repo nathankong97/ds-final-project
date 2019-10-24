@@ -23,6 +23,18 @@ var membersApp = new Vue({
     },
     handleClick(member) { //check if row is needed here//
       memberDetailApp.member = member;
+    },
+    handleEdit(member) {
+      membersApp.member = member;
+    },
+    handleDelete(event) {
+      fetch('api/firefighters/post.php', {
+        method: 'POST',
+        body: JSON.stringify(this.m),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
     }
   },
   created() {
