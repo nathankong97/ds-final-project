@@ -49,11 +49,7 @@
   <div class="container">
 
     <div class="row">
-      <div class="col-lg-12 my-5" id="membersCertificationApp">
-        <br><br><br>
-        Report Content goes here
-        <p>{{ members }}</p>
-      </div>
+
 <!-- the reoprt table goes here-->
 
 <br><br>
@@ -73,7 +69,7 @@
   </thead>
   <tbody>
     <tr v-for="f in Firefighters">
-      <td>{{ f.firstName }} & " " & {{ f.lastName }}</td>
+      <td>{{ f.firstName }} {{ f.lastName }}</td>
       <td>{{ f.position }}</td>
       <td>{{ f.stationNumber }}</td>
       <td>{{ f.radioNumber }}</td>
@@ -82,6 +78,38 @@
   </tbody>
 </table>
 </div>
+
+<!-- content for filtering the first table goes here-->
+<div class="col-lg-12 my-5">
+<form>
+  <fieldset>
+    <legend>Select Filters for Firefighter Contact Report</legend>
+    <div id=fireGuyFilterRN>
+      <p>
+        <label>Radio Number</label>
+        <select id = "RadioNum">
+          <option value = "All">All</option>
+          <option v-for="f in FirefightersFilterRN">{{ f.radioNumber }}</option>
+        </select>
+      </p>
+    </div>
+    <div id=fireGuyFilterSN>
+      <p>
+        <label>Station Number</label>
+        <select id = "StationNum">
+          <option value = "All">All</option>
+          <option v-for="f in FirefightersFilterSN">{{ f.stationNumber }}</option>
+        </select>
+      </p>
+    </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Reset</button>
+      </div>
+    </fieldset>
+</form>
+</div>
+
 <!-- A report that lists people with expired certifications (which may be filtered by certification)-->
 <div class="col-lg-12 my-5" id="expCertApp">
 <h2>Expired Certification Report</h2>
@@ -97,7 +125,7 @@
   </thead>
   <tbody>
     <tr v-for="e in ExpCerts">
-      <td>{{ e.firstName }} & " " & {{ e.lastName }}</td>
+      <td>{{ e.firstName }} {{ e.lastName }}</td>
       <td>{{ e.position }}</td>
       <td>{{ e.certificationName }}</td>
       <td>{{ e.renewedDate }}</td>
@@ -106,6 +134,30 @@
   </tbody>
 </table>
 </div>
+
+<!-- content for filtering the second table goes here-->
+<div class="col-lg-12 my-5" id="expCertFilter">
+<form>
+  <fieldset>
+    <legend>Select Filters for Expired Certificationt Report</legend>
+    <div>
+      <p>
+        <label>Certification</label>
+        <select id = "certification">
+          <option value = "All">All</option>
+          <option v-for="e in ExpCertsFilter">{{ e.certificationName }}</option>
+        </select>
+      </p>
+    </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Reset</button>
+      </div>
+    </fieldset>
+</form>
+</div>
+
+
 
     </div>
     <!-- /.row -->
@@ -122,9 +174,11 @@
     <!-- /.container -->
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="js/membersCertification.app.js"></script>
   <script src="js/fireGuyReport.app.js"></script>
   <script src="js/expCertApp.app.js"></script>
+  <script src="js/expCertFilter.app.js"></script>
+  <script src="js/fireGuyFilterRN.app.js"></script>
+  <script src="js/fireGuyFilterSN.app.js"></script>
 </body>
 
 </html>
