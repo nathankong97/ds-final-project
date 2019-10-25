@@ -50,6 +50,7 @@
   <div class="container">
 
     <div class="row">
+      <!-- Box size -->
       <div class="col-lg-12 my-5">
         <h2>Firefighters</h2>
         <div id="membersApp">
@@ -72,14 +73,14 @@
               <td>{{ m.stationNumber }}</td>
               <td>{{ m.isActive }}</td>
               <td><button title="Detail" @click="handleClick(m)" data-toggle="modal" data-target="#modal-detail"><img src="./img/detail.png" class="button"></button>
-                <button title="Edit"><img src="./img/edit.png" class="button"></button>
-                <button title="Delete"><img src="./img/delete.png" class="button"></button></td>
+                <button title="Edit" @click="handleEdit(m)"><img src="./img/edit.png" class="button"></button>
+                <button title="Delete" @click="handleDelete(m)"><img src="./img/delete.png" class="button"></button></td>
             </tr>
           </tbody>
         </table>
       </div>
 
-  <!-- Modal to view members detail-->
+      <!-- Modal to view members detail-->
       <div class="modal fade" id="modal-detail" tabindex="-1" role="dialog" aria-labelledby="detail-information" aria-hidden="true">
         <div class="modal-dialog" role="document" id="memberDetailApp">
           <div class="modal-content">
@@ -90,15 +91,21 @@
               </button>
             </div>
             <div class="modal-body text-center">
-              <p><b>Position:</b> {{ member.position }}</p>
-              <p><b>Sex:</b> {{ member.sexAtBirth }}</p>
-              <p><b>Address:</b> {{ member.address }}</p>
-              <p><b>Phone:</b> {{ member.workPhone }}</p>
-              <p><b>Radio Number:</b> {{ member.radioNumber }}</p>
-              <p><b>Station Number:</b> {{ member.stationNumber }}</p>
-              <p><b>Status:</b> {{ member.isActive }}</p>
-              <p><b>Birthdate:</b> {{ member.dob }}</p>
-              <p><b>Start Date:</b> {{ member.startDate }}</p>
+              <table class="table table-striped text-center">
+                <tr><td>Position</td><td>{{ member.position }}</td></tr>
+                <tr><td>Sex</td><td>{{ member.sexAtBirth }}</td></tr>
+                <tr><td>Address</td><td>{{ member.address }}</td></tr>
+                <tr><td>Phone</td><td>{{ member.workPhone }}</td></tr>
+                <tr><td>Radio Number</td><td>{{ member.radioNumber }}</td></tr>
+                <tr><td>Station Number</td><td>{{ member.stationNumber }}</td></tr>
+                <tr><td>Status</td><td>{{ member.isActive }}</td></tr>
+                <tr><td>Birthdate</td><td>{{ member.dob }}</td></tr>
+                <tr><td>Start Date</td><td>{{ member.startDate }}</td></tr>
+                <tr><td>Certification</td><td>
+                  <ul v-for="c in memberCert">
+                    <li>{{ c.certificationName }}</li>
+                  </ul>
+              </table>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -106,102 +113,10 @@
           </div>
         </div>
       </div>
-  <!-- Ending for detail information modal-->
+      <!-- Ending for detail information modal-->
 
+        <button type="button" class="btn btn-primary" onclick="location.href='newmember.html'">Add new members</button>
 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-member">Add new members</button>
-        &nbsp&nbsp&nbsp&nbsp
-        <button type="button" class="btn btn-primary">Export members (CSV)</button>
-
-    <!-- Modal to add member-->
-        <div class="modal fade" id="add-member" tabindex="-1" role="dialog" aria-labelledby="add-new-member" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="title"><strong>Add a new Firefighter</strong></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <form @submit.prevent="handleSubmit">
-                  <div class="form-row form-group">
-                    <div class="col">
-                      <label for="formGroupExampleInput">First Name</label>
-                      <input type="text" class="form-control" placeholder="First name">
-                    </div>
-                    <div class="col">
-                      <label for="formGroupExampleInput">Last Name</label>
-                      <input type="text" class="form-control" placeholder="Last name">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                   <label for="formGroupExampleInput">Position</label>
-                   <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Position">
-                 </div>
-                 <div class="form-group">
-                  <label for="formGroupExampleInput">Sex</label>
-                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Sex at Birth">
-                </div>
-                <div class="form-group">
-                 <label for="formGroupExampleInput">Address</label>
-                 <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Address">
-               </div>
-               <div class="form-group">
-                <label for="formGroupExampleInput">Work Phone</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Work Phone">
-              </div>
-                <div class="form-group">
-                 <label for="formGroupExampleInput">Radio Number</label>
-                 <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Radio Number">
-                 </div>
-                 <div class="form-group">
-                   <label for="formGroupExampleInput">Station Number</label>
-                   <select class="form-control" id="exampleFormControlSelect2">
-                    <option></option>
-                    <option>All</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                  </select>
-                 </div>
-                 <fieldset class="form-group">
-                  <div class="row">
-                    <legend class="col-form-label col-sm-2 pt-0">Status</legend>
-                    <div class="col-sm-10">
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                        <label class="form-check-label" for="gridRadios1">
-                          Active
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                        <label class="form-check-label" for="gridRadios2">
-                          Not Active
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </fieldset>
-                 <div class="form-group">
-                   <label for="formGroupExampleInput">Date of Birth</label>
-                   <input type="date" class="form-control" id="formGroupExampleInput" placeholder="Date of Birth">
-                 </div>
-                 <div class="form-group">
-                   <label for="formGroupExampleInput">Start Date</label>
-                   <input type="date" class="form-control" id="formGroupExampleInput" placeholder="Start Date">
-                 </div>
-                 </form>
-              </div>
-              <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-              </div>
-
-            </div>
-          </div>
-        </div>
       </div>
 
     </div>
