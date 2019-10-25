@@ -50,7 +50,12 @@
 
     <div class="row">
       <div class="col-lg-12 my-5" id="membersApp">
-        <h2>Add a new member</h2>
+        <h2>Update Member</h2>
+
+        <div id="memberEditApp">
+          <p>{{ id }}</p>
+          <p>{{ member }}</p>
+          </div>
 
         <form @submit.prevent="handleSubmit">
           <div class="form-row form-group">
@@ -132,6 +137,7 @@
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="js/members.app.js"></script>
+  <script src="js/memberEdit.app.js"></script>
 </body>
 
 </html>
