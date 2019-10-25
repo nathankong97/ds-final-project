@@ -87,7 +87,7 @@
     <div id=fireGuyFilterRN>
       <p>
         <label>Radio Number</label>
-        <select id = "RadioNum">
+        <select id = "RadioNum" v-model = "#">
           <option value = "All">All</option>
           <option v-for="f in FirefightersFilterRN">{{ f.radioNumber }}</option>
         </select>
@@ -96,7 +96,7 @@
     <div id=fireGuyFilterSN>
       <p>
         <label>Station Number</label>
-        <select id = "StationNum">
+        <select id = "StationNum" v-model = "#">
           <option value = "All">All</option>
           <option v-for="f in FirefightersFilterSN">{{ f.stationNumber }}</option>
         </select>
@@ -143,7 +143,7 @@
     <div>
       <p>
         <label>Certification</label>
-        <select id = "certification">
+        <select id = "certification" v-model = "#">
           <option value = "All">All</option>
           <option v-for="e in ExpCertsFilter">{{ e.certificationName }}</option>
         </select>
