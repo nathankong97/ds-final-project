@@ -10,7 +10,7 @@ var membersApp = new Vue({
       .then(response => response.json())
       .then(json => { membersApp.members = json })
     },
-    handleSubmit(event) {
+    handleSubmit() {
       fetch('api/firefighters/post.php', {
         method: 'POST',
         body: JSON.stringify(this.member),

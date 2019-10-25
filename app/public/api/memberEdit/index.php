@@ -7,7 +7,7 @@ $db = DbConnection::getConnection();
 $stmt = $db->prepare('SELECT * FROM Member WHERE memberGuid = ?');
 
 $stmt->execute([
-  $_POST['memberGuid']
+  $_GET['guid']
 ]);
 
 $member = $stmt->fetchAll();
