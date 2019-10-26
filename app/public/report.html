@@ -68,7 +68,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr v-for="f in Firefighters">
+    <tr v-for="f in Firefighters"
+    v-if="(filter.radioNumber==' ' || f.radioNumber==filter.radioNumber) && (filter.stationNumber==' ' || f.stationNumber==filter.stationNumber)">
       <td>{{ f.firstName }} {{ f.lastName }}</td>
       <td>{{ f.position }}</td>
       <td>{{ f.stationNumber }}</td>
@@ -88,7 +89,7 @@
       <p>
         <label>Radio Number</label>
         <select id = "RadioNum" v-model = "filter.radioNumber">
-          <option value = " " selected>All</option>
+          <option value = " " selected>No Filter</option>
           <option v-for="r in FirefightersFilterRN">{{ r.radioNumber }}</option>
         </select>
       </p>
@@ -97,15 +98,24 @@
       <p>
         <label>Station Number</label>
         <select id = "StationNum" v-model = "filter.stationNumber">
-          <option value = " ">All</option>
+          <option value = " ">No Filter</option>
           <option v-for="s in FirefightersFilterSN">{{ s.stationNumber }}</option>
         </select>
       </p>
     </div>
+
+
+      <!-- if you want the filter to work by using the submit button then uncomment below text-->
+<!-- function for the following code along with php text has been already developed and included-->
+<!--
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary">Submit</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Reset</button>
       </div>
+-->
+      <!-- if you want the filter to work by using the submit button then uncomment above text-->
+
+
     </fieldset>
 </form>
 </div></div>
@@ -124,7 +134,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr v-for="e in ExpCerts">
+    <tr v-for="e in ExpCerts"
+    v-if="(certs.certificationName==' ' || e.certificationName==certs.certificationName)">
       <td>{{ e.firstName }} {{ e.lastName }}</td>
       <td>{{ e.position }}</td>
       <td>{{ e.certificationName }}</td>
@@ -144,15 +155,22 @@
       <p>
         <label>Certification</label>
         <select id = "certification" v-model = "certs.certificationName">
-          <option value = "All">All</option>
+          <option value = " " selected>No Filter</option>
           <option v-for="x in ExpCertsFilter">{{ x.certificationName }}</option>
         </select>
       </p>
     </div>
-      <div class="modal-footer">
+
+    <!-- if you want the filter to work by using the submit button then uncomment below text-->
+<!-- function for the following code along with php text has been already developed and included-->
+<!--      <div class="modal-footer">
         <button type="submit" class="btn btn-primary">Submit</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Reset</button>
       </div>
+-->
+<!-- if you want the filter to work by using the submit button then uncomment above text-->
+
+
     </fieldset>
 </form>
 </div></div>
