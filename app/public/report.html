@@ -87,7 +87,7 @@
     <div id=fireGuyFilterRN>
       <p>
         <label>Radio Number</label>
-        <select id = "RadioNum"><!-- this line is giving an error v-model = "Firefighter.radionNumber"-->
+        <select id = "RadioNum" v-model = "filter.radioNumber">
           <option value = " " selected>All</option>
           <option v-for="r in FirefightersFilterRN">{{ r.radioNumber }}</option>
         </select>
@@ -96,7 +96,7 @@
     <div id=fireGuyFilterSN>
       <p>
         <label>Station Number</label>
-        <select id = "StationNum"><!--This line is giving an error v-model = "Firefighter.stationNumber"-->
+        <select id = "StationNum" v-model = "filter.stationNumber">
           <option value = " ">All</option>
           <option v-for="s in FirefightersFilterSN">{{ s.stationNumber }}</option>
         </select>
@@ -137,13 +137,13 @@
 
 <!-- content for filtering the second table goes here-->
 <div class="col-lg-12 my-5">
-<form>
+<form @submit.prevent="handleSubmitCertDetail">
   <fieldset>
     <legend>Select Filters for Expired Certificationt Report</legend>
     <div>
       <p>
         <label>Certification</label>
-        <select id = "certification">
+        <select id = "certification" v-model = "certs.certificationName">
           <option value = "All">All</option>
           <option v-for="x in ExpCertsFilter">{{ x.certificationName }}</option>
         </select>

@@ -4,7 +4,7 @@ var fireGuyReport = new Vue({
     Firefighters: [],
     FirefightersFilterRN: [],
     FirefightersFilterSN: [],
-    firefighter: {}
+    filter: {}
 
   },
   methods: {
@@ -13,18 +13,16 @@ var fireGuyReport = new Vue({
       .then(response => response.json())
       .then(json => { fireGuyReport.Firefighters = json })
     },
-//changes made below
     handleSubmitFFdetails(event) {
           fetch('api/reports/firefightersFiltered.php', {
             method: 'POST',
-            body: JSON.stringify(firefighter),
+            body: JSON.stringify(this.filter),
             headers: {
               "Content-Type": "application/json; charset=utf-8"
             }
           })
           .then(response => response.json())
           .then(json => { fireGuyReport.Firefighters = json })
-          window.alert("Report Filtered");
         },
     fetchFirefightersFilterRN() {
             fetch('api/reports/firefightersFilterRN.php')
@@ -37,7 +35,6 @@ var fireGuyReport = new Vue({
             .then(json => { fireGuyReport.FirefightersFilterSN = json })
           }
 
-//changes made above
 
   },
   created() {
