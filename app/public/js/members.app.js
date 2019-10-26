@@ -21,7 +21,7 @@ var membersApp = new Vue({
       window.alert("Member was created");
       window.location.href = 'members.html';
     },
-    handleClick(m) { //check if row is needed here//
+    handleClick(m) { 
       fetch('api/membersWithCertification/index.php', {
         method: 'POST',
         body: JSON.stringify(m),
