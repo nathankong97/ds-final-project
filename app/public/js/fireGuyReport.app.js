@@ -4,7 +4,10 @@ var fireGuyReport = new Vue({
     Firefighters: [],
     FirefightersFilterRN: [],
     FirefightersFilterSN: [],
-    filter: {}
+    filter: {
+      radioNumber:" ",
+      stationNumber:" "
+    }
 
   },
   methods: {

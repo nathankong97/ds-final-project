@@ -3,7 +3,9 @@ var expCertApp = new Vue({
   data: {
     ExpCerts: [],
     ExpCertsFilter: [],
-    certs: {}
+    certs: {
+      certificationName:" "
+    }
 
   },
   methods: {
