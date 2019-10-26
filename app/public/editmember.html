@@ -49,15 +49,10 @@
   <div class="container">
 
     <div class="row">
-      <div class="col-lg-12 my-5" id="membersApp">
+      <div class="col-lg-12 my-5" id="memberEditApp">
         <h2>Update Member</h2>
-
-        <div id="memberEditApp">
-          <p>{{ id }}</p>
-          <p>{{ member }}</p>
-          </div>
-
-        <form @submit.prevent="handleSubmit">
+        <p>{{ member }}</p>
+        <form @submit.prevent="handleUpdate">
           <div class="form-row form-group">
             <div class="col">
               <label for="inputFirstName">First Name</label>
@@ -136,7 +131,6 @@
     <!-- /.container -->
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="js/members.app.js"></script>
   <script src="js/memberEdit.app.js"></script>
 </body>
 

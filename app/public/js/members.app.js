@@ -10,7 +10,7 @@ var membersApp = new Vue({
       .then(response => response.json())
       .then(json => { membersApp.members = json })
     },
-    handleSubmit(event) {
+    handleSubmit() {
       fetch('api/firefighters/post.php', {
         method: 'POST',
         body: JSON.stringify(this.member),
@@ -21,7 +21,7 @@ var membersApp = new Vue({
       window.alert("Member was created");
       window.location.href = 'members.html';
     },
-    handleClick(m) { //check if row is needed here//
+    handleClick(m) { 
       fetch('api/membersWithCertification/index.php', {
         method: 'POST',
         body: JSON.stringify(m),
