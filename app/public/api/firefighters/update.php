@@ -5,7 +5,7 @@ $db = DbConnection::getConnection();
 $stmt = $db->prepare(
   'UPDATE Member
   SET firstName = ?, lastName = ?, position = ?, sexAtBirth = ?, address = ?, workPhone = ?, radioNumber = ?, stationNumber = ?,
-  isActive = ?, dob = ?, startDate = ? WHERE memberGuid = ?'
+  isActive = ?, dob = ?, startDate = ?, emailAddress = ? WHERE memberGuid = ?'
 );
 
 $stmt->execute([
@@ -20,6 +20,7 @@ $stmt->execute([
   $_POST['isActive'],
   $_POST['dob'],
   $_POST['startDate'],
+  $_POST['emailAddress'],
   $_POST['memberGuid']
 ]);
 
