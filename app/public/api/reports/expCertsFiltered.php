@@ -7,7 +7,7 @@ $stmt = $db->prepare('SELECT m.firstName, m.lastName, m.position, c.certificatio
 cast(date_add(ca.renewedDate, INTERVAL CAST(c.defaultExpirationPd AS Unsigned) YEAR) as DATE)  as expirationDate,
 Case When (date_add(ca.renewedDate, INTERVAL CAST(c.defaultExpirationPd AS Unsigned) YEAR)<=sysdate()) then "Expired" else "Not Expired" end as overdue
 from Member as m, Certification as c, CertificationAssociation as ca
-where m.memberGuid=ca.memberGuid and c.certificationId=ca.certificationID and c.certificationName = ?');
+where m.memberGuid=ca.memberGuid and c.certificationId=ca.certificationID and date_add(ca.renewedDate, INTERVAL CAST(c.defaultExpirationPd AS Unsigned) YEAR)<=sysdate() and c.certificationName = ?');
 
 $stmt->execute(
   [

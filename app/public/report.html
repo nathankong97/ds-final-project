@@ -57,7 +57,7 @@
 <!-- the reoprt for members with station, radio num and email is here-->
 <div class="col-lg-12 my-5" id="fireGuyReport">
 <h2>Firefighters contact report</h2>
-<table align="center" class="table table-bordered table-hover table-striped text-center">
+<table align="center" class="table table-bordered table-hover table-striped text-center" id="fireguyTable">
   <thead>
     <tr>
       <th scope="col">Name</th>
@@ -79,6 +79,7 @@
   </tbody>
 </table>
 
+<button type="submit" class="btn btn-primary" href="#" onclick="download_table_as_csv('fireguyTable');">Download as CSV</button>
 
 <!-- content for filtering the first table goes here-->
 <div class="col-lg-12 my-5">
@@ -123,7 +124,7 @@
 <!-- A report that lists people with expired certifications (which may be filtered by certification)-->
 <div class="col-lg-12 my-5" id="expCertApp">
 <h2>Expired Certification Report</h2>
-<table align="center" class="table table-bordered table-hover table-striped text-center">
+<table align="center" class="table table-bordered table-hover table-striped text-center" id="expiredCertTable">
   <thead>
     <tr>
       <th scope="col">Name</th>
@@ -147,6 +148,7 @@
   </tbody>
 </table>
 
+<button type="submit" class="btn btn-primary" href="#" onclick="download_table_as_csv('expiredCertTable');">Download as CSV</button>
 
 <!-- content for filtering the second table goes here-->
 <div class="col-lg-12 my-5">
@@ -196,6 +198,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="js/fireGuyReport.app.js"></script>
   <script src="js/expCertApp.app.js"></script>
+  <script src="js/csv.app.js"></script>
 
 </body>
 
