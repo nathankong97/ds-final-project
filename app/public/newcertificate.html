@@ -53,65 +53,21 @@
         <h2>Add a new certificate</h2>
 
         <form @submit.prevent="handleSubmit">
-          <div class="form-row form-group">
-            <div class="col">
+          <div class="form-group">
               <label for="inputCertificationName">Certification Name</label>
-              <input type="text" class="form-control" id="inputFirstName" v-model="member.firstName" placeholder="First name" required>
-            </div>
-            <div class="col">
-              <label for="inputLastName">Last Name</label>
-              <input type="text" class="form-control" id="inputLastName" v-model="member.lastName" placeholder="Last name" required>
-            </div>
+              <input type="text" class="form-control" id="inputCertificationName" v-model="certificate.certificationName" placeholder="Certification name" required>
           </div>
           <div class="form-group">
-           <label for="inputPosition">Position</label>
-           <input type="text" class="form-control" id="inputPosition" v-model="member.position" placeholder="Position" required>
+           <label for="inputCertifyingAgency">Certifying Agency</label>
+           <input type="text" class="form-control" id="inputCertifyingAgency" v-model="certificate.certifyingAgency" placeholder="Certifying Agency" required>
          </div>
          <div class="form-group">
-          <label for="inputsex">Sex</label>
-          <input type="text" class="form-control" id="inputsex" v-model="member.sexAtBirth" maxlength="1" pattern="[A-Za-z]" placeholder="Sex at Birth: M|F" required>
+          <label for="inputDefaultExpirationPd">Expiration Period</label>
+          <input type="text" class="form-control" id="inputDefaultExpirationPd" v-model="certificate.defaultExpirationPd" placeholder="Expiration Period (number of years)" required>
         </div>
-        <div class="form-group">
-         <label for="inputaddress">Address</label>
-         <input type="text" class="form-control" id="inputaddress" v-model="member.address" placeholder="Address" required>
-       </div>
-       <div class="form-group">
-        <label for="inputphone">Work Phone</label>
-        <input type="text" class="form-control" id="inputphone" v-model="member.workPhone" placeholder="Work Phone" required>
-      </div>
-        <div class="form-group">
-         <label for="inputRadioNum">Radio Number</label>
-         <input type="text" class="form-control" id="inputRadioNum" v-model="member.radioNumber" placeholder="Radio Number" required>
-         </div>
-         <div class="form-group">
-           <label for="inputStationNum">Station Number</label>
-           <select class="form-control" id="inputStationNum" v-model="member.stationNumber" required>
-            <option></option>
-            <option>All</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-          </select>
-         </div>
-         <div class="form-group">
-           <label for="inputStatus">Status</label>
-           <select class="form-control" id="inputStatus" v-model="member.isActive" required>
-            <option></option>
-            <option>Active</option>
-            <option>Not Active</option>
-          </select>
-         </div>
-         <div class="form-group">
-           <label for="inputdob">Date of Birth</label>
-           <input type="date" class="form-control" id="inputdob" v-model="member.dob" placeholder="Date of Birth" required>
-         </div>
-         <div class="form-group">
-           <label for="inputStartDate">Start Date</label>
-           <input type="date" class="form-control" id="inputStartDate" v-model="member.startDate" placeholder="Start Date" required>
-         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary">Submit</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.href='certification.html'">Cancel</button>
         </div>
          </form>
       </div>
@@ -131,7 +87,7 @@
     <!-- /.container -->
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="js/members.app.js"></script>
+  <script src="js/certifications.app.js"></script>
 </body>
 
 </html>
