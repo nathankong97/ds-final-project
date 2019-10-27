@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="icon" href="img/logo.png">
+  <title>Add Certificate</title>
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg fixed-top nav-color">
+    <div class="container">
+      <a class="navbar-brand main-link" href="#">
+        <img src="img/logo.png" width="38" height="40" class="d-inline-block align-top" alt="">
+        New Certificate</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link main-link" href="index.html">Home
+            </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link main-link" href="members.html">Members</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link main-link" href="certification.html">Certification</a>
+            <span class="sr-only">(current)</span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link main-link" href="report.html">Reports</a>
+
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-12 my-5" id="certificationsApp">
+        <h2>Add a new certificate</h2>
+
+        <form @submit.prevent="handleSubmit">
+          <div class="form-group">
+              <label for="inputCertificationName">Certification Name</label>
+              <input type="text" class="form-control" id="inputCertificationName" v-model="certificate.certificationName" placeholder="Certification name" required>
+          </div>
+          <div class="form-group">
+           <label for="inputCertifyingAgency">Certifying Agency</label>
+           <input type="text" class="form-control" id="inputCertifyingAgency" v-model="certificate.certifyingAgency" placeholder="Certifying Agency" required>
+         </div>
+         <div class="form-group">
+          <label for="inputDefaultExpirationPd">Expiration Period</label>
+          <input type="text" class="form-control" id="inputDefaultExpirationPd" v-model="certificate.defaultExpirationPd" placeholder="Expiration Period (number of years)" required>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.href='certification.html'">Cancel</button>
+        </div>
+         </form>
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; MSIS Team 11: Leavin' Yah Crimson</p>
+      <p class="m-0 text-center text-white">Nathan - Arlie - David - Sanyam</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/certifications.app.js"></script>
+</body>
+
+</html>
