@@ -4,7 +4,7 @@
 $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
-$stmt = $db->prepare('SELECT c.certificationName, m.firstName
+$stmt = $db->prepare('SELECT c.certificationName, m.firstName, m.lastName
 FROM Certification c, CertificationAssociation ca, Member m
 WHERE c.certificationId = ca.certificationId AND m.memberGuid = ca.memberGuid AND  c.certificationId = ?');
 

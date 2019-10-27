@@ -3,7 +3,7 @@
 
 body {
   padding-top: 56px;
-  background-color: #F8F8FF;
+  background-color: #F2F3F4;
   font-family:Garamond;
 }
 
@@ -219,4 +219,20 @@ https://codepen.io/colorlib/pen/rxddKy */
 }
 .form .register-form {
   display: none;
+}
+/*---------------------------------------*/
+
+#box-image1 {
+  background-image: linear-gradient(rgba(255,255,255,0.73), rgba(255,255,255,0.73)), url("https://www.edcmag.com/wp-content/uploads/2019/08/best-firefighter-flashlight.jpg");
+  background-size: cover;
+}
+
+#box-image2 {
+  background-image: linear-gradient(rgba(255,255,255,0.68), rgba(255,255,255,0.68)), url("https://cdn.firehouse.com/files/base/cygnus/fhc/image/2018/09/960w/DSC_0785.5b9abc9626c46.jpg");
+  background-size: cover;
+}
+
+#box-image3 {
+  background-image: linear-gradient(rgba(255,255,255,0.65), rgba(255,255,255,0.65)), url("https://www.safetyandhealthmagazine.com/ext/resources/images/news/firefighter/firefighter-gear1.jpg?1542808448");
+  background-size: cover;
 }
