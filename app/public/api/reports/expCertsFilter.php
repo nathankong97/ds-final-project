@@ -5,7 +5,7 @@ $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
 $stmt = $db->prepare('SELECT  distinct certificationName from Member as m, Certification as c, CertificationAssociation as ca
-where m.memberGuid=ca.memberGuid and c.certificationId=ca.certificationID order by certificationName ;');
+where m.memberGuid=ca.memberGuid and c.certificationId=ca.certificationID and date_add(ca.renewedDate, INTERVAL CAST(c.defaultExpirationPd AS Unsigned) YEAR)<=sysdate() order by certificationName ;');
 $stmt->execute();
 $ExpCertsFilter = $stmt->fetchAll();
 
