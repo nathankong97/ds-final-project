@@ -3,7 +3,8 @@ var membersCertificationApp = new Vue({
   data: {
     members: [],
     certs: [],
-    memberCerts: []
+    memberCerts: [],
+    memberWithCert: {}
   },
   methods: {
     fetchAllMembers() {
@@ -20,6 +21,17 @@ var membersCertificationApp = new Vue({
       fetch('api/membersWithCertification/all.php')
       .then(response => response.json())
       .then(json => { membersCertificationApp.memberCerts = json })
+    },
+    handleSubmit() {
+      fetch('api/membersWithCertification/post.php', {
+        method:'POST',
+        body: JSON.stringify(this.memberWithCert),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+      window.alert("Certification has added to this firefighter");
+      window.location.href = 'memberCert.html';
     }
   },
   created() {
