@@ -18,7 +18,8 @@ var memberDetailApp = new Vue({
         stationNumber:'',
         isActive:'',
         dob:'',
-        startDate:''
+        startDate:'',
+        emailAddress:''
       }
     }
   },
