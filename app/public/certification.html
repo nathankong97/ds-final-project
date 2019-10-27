@@ -65,16 +65,48 @@
               <td>{{ c.certificationName }}</td>
               <td>{{ c.defaultExpirationPd }}</td>
               <td>{{ c.certifyingAgency }}</td>
-              <td><button title="Detail"><img src="./img/detail.png" class="button"></button>
-                <button title="Edit"><img src="./img/edit.png" class="button"></button>
-                <button title="Delete"><img src="./img/delete.png" class="button"></button></td>
+              <td><button title="Detail" @click="handleClick(c)" data-toggle="modal" data-target="#modal-detail"><img src="./img/detail.png" class="button"></button>
+                <button title="Edit" @click="handleEdit(c)"><img src="./img/edit.png" class="button"></button>
+                <button title="Delete" @click="handleDelete(c)"><img src="./img/delete.png" class="button"></button></td>
             </tr>
           </tbody>
         </table>
-        <button type="button" class="btn btn-primary" onclick="location.href='newcertificate.html'">Add new members</button>
-
       </div>
+
+      <!-- Modal to view certificate detail-->
+<div id="certificateDetailApp">
+      <div class="modal fade" id="modal-detail" tabindex="-1" role="dialog" aria-labelledby="detail-information" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <h5 class="modal-title">Detail Information with: <strong>{{certificate.certificationName }}</strong></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body text-center">
+              <table class="table table-striped text-center">
+                <tr><td>Name</td><td>{{ certificate.certificationName }}</td></tr>
+                <tr><td>Cerifying Agency</td><td>{{ certificate.certifyingAgency }}</td></tr>
+                <tr><td>Default Expiration Period</td><td>{{ certificate.defaultExpirationPd }}</td></tr>
+                <tr><td>Members</td><td>
+                  <ul v-for="m in certMember">
+                    <li>{{ m.firstName }} {{ m.lastName }}</li>
+                  </ul>
+              </table>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
       <!-- Ending for detail information modal-->
+      <button type="button" class="btn btn-primary" onclick="location.href='newcertificate.html'">Add new certification</button>
 
     </div>
     <!-- /.row -->
@@ -92,6 +124,8 @@
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="js/certifications.app.js"></script>
+  <script src="js/certificateDetail.app.js"></script>
+
 </body>
 
 </html>

@@ -51,7 +51,6 @@
     <div class="row">
       <div class="col-lg-12 my-5" id="memberEditApp">
         <h2>Update Member</h2>
-        <p>{{ member }}</p>
         <form @submit.prevent="handleUpdate">
           <div class="form-row form-group">
             <div class="col">
@@ -111,7 +110,7 @@
          </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary">Submit</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-secondary" onclick="location.href='members.html'" data-dismiss="modal">Cancel</button>
         </div>
          </form>
       </div>
